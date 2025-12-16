@@ -50,7 +50,8 @@ public class ItemController {
     }
 
     @GetMapping
-    public List<Item> getAllItems() {
-        return itemService.getAllItems();
+    public ResponseEntity<List<Item>> getAllItems() {
+        List<Item> list = itemService.getAllItems();
+        return ResponseEntity.ok(list);
     }
 }

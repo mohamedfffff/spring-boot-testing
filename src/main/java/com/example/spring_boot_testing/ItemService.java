@@ -16,13 +16,8 @@ public class ItemService {
     }
 
     public Item saveNewItem(String name, double price) {
-        if (itemRepository.findByName(name).isPresent()) {
-            throw new ItemAlreadyExistsException(name);
-            
-        } else {
-            Item newItem = new Item(name, price);
-            return itemRepository.save(newItem);
-        }
+        Item newItem = new Item(name, price);
+        return itemRepository.save(newItem);
         
     }
 
